@@ -1,5 +1,7 @@
 const pokemonGallery = document.getElementById('pokemon-gallery');
-const pokemonDetailsContainer = document.getElementById('pokemon-details');
+const searchInput = document.getElementById('search-input');
+const searchButton = document.getElementById('search-btn');
+
 
 
 const buildPokemonElements = async (getAllPokemonData) => {

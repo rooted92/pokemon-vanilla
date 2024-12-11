@@ -12,10 +12,14 @@
 <body class="flex flex-col min-h-screen ">
     <header class="mb-8 p-4">
         <nav class="flex justify-evenly items-center">
-            <a href="./index.html"><h1 class="text-3xl font-bold">Pokemon Gallery</h1></a>
-            <ul id="links">
-                <li>About</li>
-            </ul>
+            <a href="./index.html">
+                <h1 class="text-3xl font-bold">Pokemon Gallery</h1>
+            </a>
+            <div class="flex gap-4">
+                <label for="search" class="sr-only">Search</label>
+                <input id="search-input" type="search" class="border-2 border-oxfordBlue rounded-full outline-2 outline-oxfordBlue">
+                <button id="search-btn" type="button" class="px-4 py-2 bg-oxfordBlue text-white rounded-full hover:bg-platinum hover:text-oxfordBlue transition-all ease-in">Search</button>
+            </div>
         </nav>
     </header>
     <main class="flex-1 mx-2 mb-16">
@@ -25,7 +29,7 @@
             </div>
         </section>
     </main>
-    <footer class="flex items-center justify-center p-4" >
+    <footer class="flex items-center justify-center p-4">
         <p>&copy; 2024 Pokemon Gallery</p>
     </footer>
 
