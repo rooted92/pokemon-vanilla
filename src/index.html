@@ -13,12 +13,31 @@
     <header class="mb-8 p-4">
         <nav class="flex justify-evenly items-center">
             <a href="./index.html">
-                <h1 class="text-3xl font-bold">Pokemon Gallery</h1>
+                <h1 class="text-3xl font-bold hover:text-orangeWeb transition-all ease-in">Pokemon Gallery</h1>
             </a>
             <div class="flex gap-4">
                 <label for="search" class="sr-only">Search</label>
-                <input id="search-input" type="search" class="border-2 border-oxfordBlue rounded-full outline-2 outline-oxfordBlue">
-                <button id="search-btn" type="button" class="px-4 py-2 bg-oxfordBlue text-white rounded-full hover:bg-platinum hover:text-oxfordBlue transition-all ease-in">Search</button>
+                <input id="search-input" type="search"
+                    class="border-2 border-oxfordBlue rounded-full outline-2 outline-oxfordBlue">
+                <button id="search-btn" type="button"
+                    class="px-4 py-2 bg-oxfordBlue text-white rounded-full hover:bg-platinum hover:text-oxfordBlue transition-all ease-in">Search</button>
+            </div>
+            <div class="flex gap-4">
+                <label for="filter" class="sr-only">Filter by type</label>
+                <select class="bg-oxfordBlue rounded-full px-4 py-2 text-platinum" name="filter" id="filter-dropdown">
+                    <option class="" value="All">Type</option>
+                    <option value="grass">Grass</option>
+                    <option value="fire">Fire</option>
+                    <option value="water">Water</option>
+                    <option value="electric">Electric</option>
+                    <option value="psychic">Psychic</option>
+                    <option value="ice">Ice</option>
+                    <option value="dragon">Dragon</option>
+                    <option value="dark">Dark</option>
+                    <option value="fairy">Fairy</option>
+                    <option value="normal">Normal</option>
+                    <option value="poison">Poison</option>
+                </select>
             </div>
         </nav>
     </header>
