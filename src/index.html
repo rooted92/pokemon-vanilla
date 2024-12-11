@@ -6,80 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokemon Gallery | Vanilla JS</title>
     <link rel="stylesheet" href="./output.css">
+    <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="flex flex-col min-h-screen">
+<body class="flex flex-col min-h-screen ">
     <header>
         <nav>
-
+            <ul id="links">
+                
+            </ul>
         </nav>
     </header>
-    <main>
-        <section class="flex-1">
+    <main class="flex-1">
+        <section class="mx-4">
             <h1 class="text-3xl font-bold mb-8">Pokemon Gallery</h1>
-            <div id="pokemon-gallery" class="grid grid-cols-6 gap-8">
-                <!-- Pokemon Card -->
-                <div class="pokemon-card">
-                    <div class="pokemon-image">
-                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
-                            alt="Pokemon Image">
-                    </div>
-                    <div class="pokemon-info">
-                        <h2 class="text-xl font-bold">Bulbasaur</h2>
-                        <p class="text-sm">Grass | Poison</p>
-                    </div>
-                </div>
-                <!-- Pokemon Card -->
-                <div class="pokemon-card">
-                    <div class="pokemon-image">
-                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png"
-                            alt="Pokemon Image">
-                    </div>
-                    <div class="pokemon-info">
-                        <h2 class="text-xl font-bold">Ivysaur</h2>
-                        <p class="text-sm">Grass | Poison</p>
-                    </div>
-                </div>
-                <!-- Pokemon Card -->
-                <div class="pokemon-card">
-                    <div class="pokemon-image">
-                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png"
-                            alt="Pokemon Image">
-                    </div>
-                    <div class="pokemon-info">
-                        <h2 class="text-xl font-bold">Venusaur</h2>
-                        <p class="text-sm">Grass | Poison</p>
-                    </div>
-                </div>
-                <!-- Pokemon Card -->
-                <div class="pokemon-card">
-                    <div class="pokemon-image">
-                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png"
-                            alt="Pokemon Image">
-                    </div>
-                    <div class="pokemon-info">
-                        <h2 class="text-xl font-bold">Charmander</h2>
-                        <p class="text-sm">Fire</p>
-                    </div>
-                </div>
-                <!-- Pokemon Card -->
-                <div class="pokemon-card">
-                    <div class="pokemon-image">
-                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/5.png"
-                            alt="Pokemon Image">
-                    </div>
-                    <div class="pokemon-info">
-                        <h2 class="text-xl font-bold">Charmeleon</h2>
-                        <p class="text-sm">Fire</p>
-                    </div>
-                </div>
+            <div id="pokemon-gallery" class="grid grid-cols-1 sm:grid-cols-3 xl:grid-cols-6 gap-8">
+                
+            </div>
         </section>
     </main>
     <footer>
         <p>&copy; 2024 Pokemon Gallery</p>
     </footer>
 
-    <script src="./app.js"></script>
+    <script type="module" src="./app.js"></script>
 </body>
 
 </html>
