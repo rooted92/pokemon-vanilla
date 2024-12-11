@@ -16,15 +16,15 @@ const buildPokemonElements = async (pokemonRequest) => {
     const data = await pokemonRequest();
     const pokemon = data.results;
     console.log(pokemon);
-    pokemon.map(async (pokemon, index) => {
-        const pokemonDetails = await getPokemonDetails(pokemon.url);
-        console.log(pokemonDetails);
-        let typeName = pokemonDetails.types[0].type.name;
+    pokemon.map(async (pokemon) => {
+        const {name, type, image, id} = await getPokemonDetails(pokemon.url);
+        
         const pokemonCard = document.createElement('div');
         pokemonCard.className = 'flex flex-col items-center justify-center p-4';
         pokemonCard.innerHTML = `
-            <p key=${index}>${pokemon.name}</p>
-            <p>${typeName}</p>
+            <img src=${image} alt=${name} class="w-[4rem] h-auto" />
+            <p key=${id} class='text-lg font-semibold'>${name}</p>
+            <p>${type}</p>
         `;
         pokemonGallery.appendChild(pokemonCard);
     });
@@ -42,5 +42,12 @@ async function getPokemon() {
 async function getPokemonDetails(pokemonURL) {
     const response = await fetch(pokemonURL);
     const pokemonDetails = await response.json();
-    return pokemonDetails;
+    console.log(pokemonDetails);
+    let pokemonObject = {
+        name: pokemonDetails.name,
+        type: pokemonDetails.types[0].type.name,
+        image: pokemonDetails.sprites.other['official-artwork'].front_default,
+        id: pokemonDetails.id
+    }
+    return pokemonObject;
 }
