@@ -3,5 +3,7 @@
 @tailwind utilities;
 
 :root {
-    
+    --oxford-blue: #14213D;
+    --orange-web: #FCA311;
+    --platinum: #E5E5E5;
 }
