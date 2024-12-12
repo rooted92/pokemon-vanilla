@@ -28,12 +28,18 @@ const getPokemonEvolutionChain = async (id) => {
     
     const evolutionChainResponse = await fetch(evolutionURL);
     const evolutionChainData = await evolutionChainResponse.json();
-    console.log(evolutionChainData);
 
+    let currentStage = evolutionChainData.chain;
+    const evolutions = [];
     
+    while(currentStage) {
+        evolutions.push(currentStage.species.name);
+        currentStage = currentStage.evolves_to[0];
+    }
+
+    return evolutions;
 }
 
-console.log('Pokemon ID: ' + pokemonId);
 getPokemonEvolutionChain(pokemonId);
 
 const renderPokemonDetails = async () => {
