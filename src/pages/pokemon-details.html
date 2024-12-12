@@ -10,25 +10,11 @@
 </head>
 
 <body class="flex flex-col min-h-screen">
-    <header class="mb-8 p-4">
-        <nav class="flex flex-col sm:flex-row justify-evenly items-center gap-6">
+    <header class="mb-8 p-4 container mx-auto">
+        <nav class="flex justify-start">
             <a href="../index.html">
-                <h1 class="text-3xl font-bold text-prussianBlue hover:text-utOrange transition-all ease-in">Pokemon
-                    Gallery</h1>
+                <h1 class="text-prussianBlue hover:text-utOrange transition-all ease-in">&lArr; back to gallery</h1>
             </a>
-            <div class="flex gap-4">
-                <label for="search" class="sr-only">Search</label>
-                <input type="search" class="border-2 border-prussianBlue rounded-full outline-2 outline-prussianBlue">
-                <button type="button"
-                    class="px-4 py-2 bg-prussianBlue text-skyBlue rounded-full hover:bg-blueGreen hover:text-prussianBlue transition-all ease-in">Search</button>
-            </div>
-            <div class="flex gap-4">
-                <label for="filter" class="sr-only">Filter by type</label>
-                <select class="bg-prussianBlue rounded-full px-4 py-2 text-skyBlue" name="filter" id="filter-dropdown">
-                    <option class="" value="All">All</option>
-                    <option value="Type">Type</option>
-                </select>
-            </div>
         </nav>
     </header>
     <main class="flex-1 mx-2 mb-16">

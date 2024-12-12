@@ -7,6 +7,7 @@ const pokemonId = urlParams.get('id');
 const getPokemonDetailsById = async (id) => {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
     const pokemon = await response.json();
+
     return {
         name: pokemon.name,
         id: pokemon.id,
@@ -20,7 +21,7 @@ const getPokemonDetailsById = async (id) => {
     };
 };
 
-const getPokemonEvolutionChain = async (id) => {
+const getPokemonEvolutions = async (id) => {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
     const data = await response.json();
     const evolutionURL = data.evolution_chain.url;
@@ -33,19 +34,29 @@ const getPokemonEvolutionChain = async (id) => {
     const evolutions = [];
 
     while (currentStage) {
-        evolutions.push(currentStage.species.name);
-        if(currentStage.evolves_to.length > 1){
-            currentStage.evolves_to.forEach(stage => {
-                evolutions.push(stage.species.name);
-            })
+        // Add the species name if it's not already in the array
+        if (!evolutions.includes(currentStage.species.name)) {
+            evolutions.push(currentStage.species.name);
         }
+
+        // If there are multiple evolutions, add them all (while avoiding duplicates)
+        if (currentStage.evolves_to.length > 1) {
+            currentStage.evolves_to.forEach(stage => {
+                if (!evolutions.includes(stage.species.name)) {
+                    evolutions.push(stage.species.name);
+                }
+            });
+        }
+
+        // Move to the next stage in the evolution chain
         currentStage = currentStage.evolves_to[0];
     }
-
+    console.log('Here is the evolutions array: ', evolutions);
     return evolutions;
 }
 
 async function createEvolutionObjects(evolutions) {
+    console.log('Here is the evolutions array arg: ', evolutions)
     const evolutionObjects = [];
     for (let i = 0; i < evolutions.length; i++) {
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${evolutions[i]}`);
@@ -57,11 +68,11 @@ async function createEvolutionObjects(evolutions) {
         });
     }
 
+    console.log('Here is the evolution objects array: ', evolutionObjects)
     return evolutionObjects;
 };
 
-const evolutionChain = await getPokemonEvolutionChain(pokemonId);
-
+const evolutionChain = await getPokemonEvolutions(pokemonId);
 const pokemonEvolutions = await createEvolutionObjects(evolutionChain);
 
 const renderPokemonDetails = async () => {
@@ -84,7 +95,7 @@ const renderPokemonDetails = async () => {
         </div>
         <div class='flex flex-col gap-4'>
             <p class='text-xl font-semibold'>Evolutions</p>
-            <div class='grid grid-cols-1 sm:grid-cols-3 items-center justify-around gap-8'>
+            <div class='grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 items-center justify-around gap-8'>
                 ${pokemonEvolutions.map(evolution => `
                     <div class='flex flex-col items-center justify-center gap-4'>
                         <img src=${evolution.image} alt=${evolution.name} class="w-[10rem] h-auto" />
