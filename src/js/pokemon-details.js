@@ -25,14 +25,14 @@ const getPokemonEvolutionChain = async (id) => {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
     const data = await response.json();
     const evolutionURL = data.evolution_chain.url;
-    
+
     const evolutionChainResponse = await fetch(evolutionURL);
     const evolutionChainData = await evolutionChainResponse.json();
 
     let currentStage = evolutionChainData.chain;
     const evolutions = [];
-    
-    while(currentStage) {
+
+    while (currentStage) {
         evolutions.push(currentStage.species.name);
         currentStage = currentStage.evolves_to[0];
     }
@@ -40,7 +40,24 @@ const getPokemonEvolutionChain = async (id) => {
     return evolutions;
 }
 
-getPokemonEvolutionChain(pokemonId);
+async function createEvolutionObjects(evolutions) {
+    const evolutionObjects = [];
+    for (let i = 0; i < evolutions.length; i++) {
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${evolutions[i]}`);
+        const pokemon = await response.json();
+        evolutionObjects.push({
+            name: pokemon.name,
+            id: pokemon.id,
+            image: pokemon.sprites.other['official-artwork'].front_default,
+        });
+    }
+
+    return evolutionObjects;
+};
+
+const evolutionChain = await getPokemonEvolutionChain(pokemonId);
+
+const pokemonEvolutions = await createEvolutionObjects(evolutionChain);
 
 const renderPokemonDetails = async () => {
     const pokemon = await getPokemonDetailsById(pokemonId);
@@ -60,8 +77,17 @@ const renderPokemonDetails = async () => {
                 <p class='capitalize'>Stats: ${pokemon.stats.map(stat => `${stat.name}: ${stat.value}`).join(', ')}</p>
             </div>
         </div>
-        
-        
+        <div class='flex flex-col gap-4'>
+            <p class='text-xl font-semibold'>Evolutions</p>
+            <div class='grid grid-cols-1 sm:grid-cols-3 items-center justify-around gap-8'>
+                ${pokemonEvolutions.map(evolution => `
+                    <div class='flex flex-col items-center justify-center gap-4'>
+                        <img src=${evolution.image} alt=${evolution.name} class="w-[10rem] h-auto" />
+                        <p class='text-lg font-semibold capitalize'>${evolution.name}</p>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
     `;
 
     pokemonDetailsContainer.appendChild(pokemonDetails);
