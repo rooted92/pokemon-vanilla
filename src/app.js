@@ -11,7 +11,7 @@ const buildPokemonElements = async (getAllPokemonData) => {
         const { name, type, image, id } = await getPokemonDetails(pokemon.url);
 
         const pokemonCard = document.createElement('div');
-        pokemonCard.className = 'flex flex-col items-center justify-center p-2 border border-orangeWeb rounded-lg shadow-lg shadow-orangeWeb bg-oxfordBlue text-platinum';
+        pokemonCard.className = 'flex flex-col items-center justify-center p-2 border border-utOrange rounded-lg shadow-lg shadow-utOrange bg-prussianBlue text-skyBlue';
         pokemonCard.innerHTML = `
             <p class='text-lg font-semibold self-end'>${id}</p>
             <a href='/src/pages/pokemon-details.html?id=${id}' class='hover:-translate-y-1 hover:scale-105 transition-all ease-in'>
@@ -26,7 +26,7 @@ const buildPokemonElements = async (getAllPokemonData) => {
 }
 
 async function getAllPokemon() {
-    const response = await fetch('https://pokeapi.co/api/v2/pokemon/?limit=1302');
+    const response = await fetch('https://pokeapi.co/api/v2/pokemon/?limit=151');
     const data = await response.json();
     console.log(data);
     return data.results;

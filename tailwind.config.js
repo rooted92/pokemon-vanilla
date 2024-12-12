@@ -4,9 +4,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        oxfordBlue: 'var(--oxford-blue)',
-        orangeWeb: 'var(--orange-web)',
-        platinum: 'var(--platinum)',
+        prussianBlue: 'var(--prussian-blue)',
+        utOrange: 'var(--ut-orange)',
+        selectiveYellow: 'var(--selective-yellow)',
+        skyBlue: 'var(--sky-blue)',
+        blueGreen: 'var(--blue-green)',
+
       },
       screens: {
         'xs': '475px',

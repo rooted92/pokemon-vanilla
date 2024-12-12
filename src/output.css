@@ -666,16 +666,16 @@ video {
   width: 30rem;
 }
 
-.w-\[60\%\] {
-  width: 60%;
-}
-
 .w-\[80\%\] {
   width: 80%;
 }
 
-.w-6 {
-  width: 1.5rem;
+.w-\[25rem\] {
+  width: 25rem;
+}
+
+.w-\[20rem\] {
+  width: 20rem;
 }
 
 .flex-1 {
@@ -698,6 +698,10 @@ video {
   justify-content: center;
 }
 
+.justify-around {
+  justify-content: space-around;
+}
+
 .justify-evenly {
   justify-content: space-evenly;
 }
@@ -712,10 +716,6 @@ video {
 
 .gap-8 {
   gap: 2rem;
-}
-
-.place-self-center {
-  place-self: center;
 }
 
 .self-start {
@@ -734,10 +734,6 @@ video {
   border-radius: 0.5rem;
 }
 
-.rounded {
-  border-radius: 0.25rem;
-}
-
 .border {
   border-width: 1px;
 }
@@ -746,16 +742,25 @@ video {
   border-width: 2px;
 }
 
-.border-orangeWeb {
-  border-color: var(--orange-web);
+.border-prussianBlue {
+  border-color: var(--prussian-blue);
 }
 
-.border-oxfordBlue {
-  border-color: var(--oxford-blue);
+.border-utOrange {
+  border-color: var(--ut-orange);
 }
 
-.bg-oxfordBlue {
-  background-color: var(--oxford-blue);
+.bg-prussianBlue {
+  background-color: var(--prussian-blue);
+}
+
+.bg-skyBlue {
+  background-color: var(--sky-blue);
+}
+
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
 
 .p-2 {
@@ -778,6 +783,16 @@ video {
 .py-2 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+}
+
+.py-6 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.px-12 {
+  padding-left: 3rem;
+  padding-right: 3rem;
 }
 
 .text-3xl {
@@ -811,17 +826,17 @@ video {
   font-style: italic;
 }
 
-.text-oxfordBlue {
-  color: var(--oxford-blue);
-}
-
-.text-platinum {
-  color: var(--platinum);
+.text-prussianBlue {
+  color: var(--prussian-blue);
 }
 
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.text-skyBlue {
+  color: var(--sky-blue);
 }
 
 .shadow-lg {
@@ -830,8 +845,8 @@ video {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.shadow-orangeWeb {
-  --tw-shadow-color: var(--orange-web);
+.shadow-utOrange {
+  --tw-shadow-color: var(--ut-orange);
   --tw-shadow: var(--tw-shadow-colored);
 }
 
@@ -839,8 +854,8 @@ video {
   outline-width: 2px;
 }
 
-.outline-oxfordBlue {
-  outline-color: var(--oxford-blue);
+.outline-prussianBlue {
+  outline-color: var(--prussian-blue);
 }
 
 .filter {
@@ -857,6 +872,10 @@ video {
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
 }
 
+.ease-linear {
+  transition-timing-function: linear;
+}
+
 .hover\:-translate-y-1:hover {
   --tw-translate-y: -0.25rem;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -868,16 +887,25 @@ video {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-.hover\:bg-platinum:hover {
-  background-color: var(--platinum);
+.hover\:bg-skyBlue:hover {
+  background-color: var(--sky-blue);
 }
 
-.hover\:text-orangeWeb:hover {
-  color: var(--orange-web);
+.hover\:bg-blueGreen:hover {
+  background-color: var(--blue-green);
 }
 
-.hover\:text-oxfordBlue:hover {
-  color: var(--oxford-blue);
+.hover\:text-utOrange:hover {
+  color: var(--ut-orange);
+}
+
+.hover\:text-prussianBlue:hover {
+  color: var(--prussian-blue);
+}
+
+.hover\:text-white:hover {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
 @media (min-width: 640px) {
