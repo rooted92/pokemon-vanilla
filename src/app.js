@@ -22,6 +22,10 @@ searchButton.addEventListener('click', async () => {
         pokemonGallery.appendChild(pokemonCard);
 })
 
+searchInput.addEventListener('change', (event) => {
+    console.log(event);
+})
+
 const buildPokemonElements = async (getAllPokemonData) => {
     const allPokemon = await getAllPokemonData();
 
@@ -44,7 +48,7 @@ const buildPokemonElements = async (getAllPokemonData) => {
 }
 
 async function getAllPokemon() {
-    const response = await fetch('https://pokeapi.co/api/v2/pokemon/?limit=30&offset=0');
+    const response = await fetch('https://pokeapi.co/api/v2/pokemon/?limit=151&offset=0');
     const data = await response.json();
     return data.results;
 }
@@ -64,6 +68,7 @@ async function getPokemonDetails(pokemonURL) {
 }
 
 async function getSearchInput(input) {
+
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${input}`)
     const pokemon = await response.json();
     console.log(pokemon);
