@@ -624,14 +624,6 @@ video {
   border-width: 0;
 }
 
-.col-auto {
-  grid-column: auto;
-}
-
-.row-auto {
-  grid-row: auto;
-}
-
 .mx-2 {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
@@ -682,16 +674,8 @@ video {
   flex: 1 1 0%;
 }
 
-.auto-cols-auto {
-  grid-auto-columns: auto;
-}
-
 .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
-}
-
-.grid-cols-3 {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .flex-col {

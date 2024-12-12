@@ -7,7 +7,6 @@ const pokemonId = urlParams.get('id');
 const getPokemonDetailsById = async (id) => {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
     const pokemon = await response.json();
-    console.log(pokemon);
     return {
         name: pokemon.name,
         id: pokemon.id,
@@ -28,12 +27,18 @@ const getPokemonEvolutionChain = async (id) => {
 
     const evolutionChainResponse = await fetch(evolutionURL);
     const evolutionChainData = await evolutionChainResponse.json();
+    console.log('Here are the evolution data: ', evolutionChainData)
 
     let currentStage = evolutionChainData.chain;
     const evolutions = [];
 
     while (currentStage) {
         evolutions.push(currentStage.species.name);
+        if(currentStage.evolves_to.length > 1){
+            currentStage.evolves_to.forEach(stage => {
+                evolutions.push(stage.species.name);
+            })
+        }
         currentStage = currentStage.evolves_to[0];
     }
 
