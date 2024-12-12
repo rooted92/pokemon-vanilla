@@ -7,7 +7,7 @@ const pokemonId = urlParams.get('id');
 const getPokemonDetailsById = async (id) => {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
     const pokemon = await response.json();
-
+    console.log(pokemon);
     return {
         name: pokemon.name,
         id: pokemon.id,
@@ -19,7 +19,22 @@ const getPokemonDetailsById = async (id) => {
             value: stat.base_stat
         })),
     };
+};
+
+const getPokemonEvolutionChain = async (id) => {
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
+    const data = await response.json();
+    const evolutionURL = data.evolution_chain.url;
+    
+    const evolutionChainResponse = await fetch(evolutionURL);
+    const evolutionChainData = await evolutionChainResponse.json();
+    console.log(evolutionChainData);
+
+    
 }
+
+console.log('Pokemon ID: ' + pokemonId);
+getPokemonEvolutionChain(pokemonId);
 
 const renderPokemonDetails = async () => {
     const pokemon = await getPokemonDetailsById(pokemonId);
@@ -27,12 +42,12 @@ const renderPokemonDetails = async () => {
     const pokemonDetails = document.createElement('div');
     pokemonDetails.className = 'flex flex-col gap-4 items-center justify-center py-6 px-12 border border-utOrange rounded-lg bg-prussianBlue text-skyBlue shadow-lg shadow-utOrange w-[80%]';
     pokemonDetails.innerHTML = `
-        <p class='text-lg font-semibold self-end'>${pokemon.id}</p>
+        <p class='text-lg font-semibold self-start'>${pokemon.id}</p>
         <div class='flex items-center justify-around gap-8'>
-            <div class='flex flex-col gap-4'>
+            <div class='flex flex-col items-center justify-center gap-4'>
                 <img src=${pokemon.image} alt=${pokemon.name} class="w-[20rem] h-auto" />
                 <p key=${pokemon.id} class='text-4xl font-semibold capitalize'>${pokemon.name}</p>
-            </div
+            </div>
             <div class='flex flex-col gap-4'>
                 <p class='capitalize'>Abilities: ${pokemon.abilities.join(', ')}</p>
                 <p class='capitalize'>Moves: ${pokemon.moves.join(', ')}</p>

@@ -662,20 +662,12 @@ video {
   width: 10rem;
 }
 
-.w-\[30rem\] {
-  width: 30rem;
+.w-\[20rem\] {
+  width: 20rem;
 }
 
 .w-\[80\%\] {
   width: 80%;
-}
-
-.w-\[25rem\] {
-  width: 25rem;
-}
-
-.w-\[20rem\] {
-  width: 20rem;
 }
 
 .flex-1 {
@@ -754,10 +746,6 @@ video {
   background-color: var(--prussian-blue);
 }
 
-.bg-skyBlue {
-  background-color: var(--sky-blue);
-}
-
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
@@ -771,8 +759,9 @@ video {
   padding: 1rem;
 }
 
-.p-6 {
-  padding: 1.5rem;
+.px-12 {
+  padding-left: 3rem;
+  padding-right: 3rem;
 }
 
 .px-4 {
@@ -788,11 +777,6 @@ video {
 .py-6 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
-}
-
-.px-12 {
-  padding-left: 3rem;
-  padding-right: 3rem;
 }
 
 .text-3xl {
@@ -830,13 +814,13 @@ video {
   color: var(--prussian-blue);
 }
 
+.text-skyBlue {
+  color: var(--sky-blue);
+}
+
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
-}
-
-.text-skyBlue {
-  color: var(--sky-blue);
 }
 
 .shadow-lg {
@@ -872,10 +856,6 @@ video {
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
 }
 
-.ease-linear {
-  transition-timing-function: linear;
-}
-
 .hover\:-translate-y-1:hover {
   --tw-translate-y: -0.25rem;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -887,20 +867,16 @@ video {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-.hover\:bg-skyBlue:hover {
-  background-color: var(--sky-blue);
-}
-
 .hover\:bg-blueGreen:hover {
   background-color: var(--blue-green);
 }
 
-.hover\:text-utOrange:hover {
-  color: var(--ut-orange);
-}
-
 .hover\:text-prussianBlue:hover {
   color: var(--prussian-blue);
+}
+
+.hover\:text-utOrange:hover {
+  color: var(--ut-orange);
 }
 
 .hover\:text-white:hover {
