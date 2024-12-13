@@ -111,7 +111,7 @@ const renderPokemonDetails = async () => {
             <div class='grid grid-cols-1 xxs:grid-cols-2 xs:grid-cols-3 lg:grid-cols-5 items-center justify-around gap-8'>
                 ${pokemonEvolutions.map(evolution => `
                     <div class='flex flex-col items-center justify-center gap-4'>
-                        <a href='/src/pages/pokemon-details.html?id=${evolution.id}' class='hover:-translate-y-1 hover:scale-105 transition-all ease-in'>
+                        <a href='./pokemon-details.html?id=${evolution.id}' class='hover:-translate-y-1 hover:scale-105 transition-all ease-in'>
                             <img src=${evolution.image} alt=${evolution.name} class="w-[10rem] h-auto" />
                         </a>
                         <p class='text-lg font-semibold capitalize'>${evolution.name}</p>
