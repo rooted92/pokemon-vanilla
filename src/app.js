@@ -94,13 +94,13 @@ async function renderPokemonGallery(pokemonList) {
         const { name, type, image, id } = await getPokemonDetails(pokemon.url);
 
         const pokemonCard = document.createElement('div');
-        pokemonCard.className = 'flex flex-col items-center justify-center p-2 border border-utOrange rounded-lg shadow-lg shadow-utOrange bg-prussianBlue text-skyBlue';
+        pokemonCard.className = 'flex flex-col items-center justify-center p-2 border border-selectiveYellow dark:border-skyBlue rounded-lg shadow-lg shadow-selectiveYellow dark:shadow-skyBlue bg-prussianBlue dark:bg-black text-skyBlue';
         pokemonCard.innerHTML = `
             <p class='text-lg font-semibold self-end'>${id}</p>
             <a href='/src/pages/pokemon-details.html?id=${id}' class='hover:-translate-y-1 hover:scale-105 transition-all ease-in'>
             <img src=${image} alt=${name} class="w-[10rem] h-auto" loading='lazy' />
             </a>
-            <p key=${id} class='text-lg font-semibold capitalize'>${name}</p>
+            <p key=${id} class='text-lg font-semibold capitalize text-utOrange dark:text-selectiveYellow'>${name}</p>
             <p class='capitalize italic'>${type}</p>
         `;
 

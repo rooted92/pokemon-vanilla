@@ -79,7 +79,7 @@ const renderPokemonDetails = async () => {
     const pokemon = await getPokemonDetailsById(pokemonId);
 
     const pokemonDetails = document.createElement('div');
-    pokemonDetails.className = 'flex flex-col gap-4 items-center justify-center py-6 px-12 border border-utOrange rounded-lg bg-prussianBlue text-skyBlue shadow-lg shadow-utOrange xxs:w-[90%] sm:w-[80%] text-pretty';
+    pokemonDetails.className = 'flex flex-col gap-4 items-center justify-center py-6 px-12 border border-utOrange dark:border-blueGreen rounded-lg bg-prussianBlue dark:bg-black text-skyBlue shadow-lg shadow-utOrange dark:shadow-blueGreen xxs:w-[90%] sm:w-[80%] text-pretty';
     pokemonDetails.innerHTML = `
         <p class='text-3xl text-selectiveYellow font-semibold self-start'>${pokemon.id}</p>
 

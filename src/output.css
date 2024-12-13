@@ -828,6 +828,10 @@ video {
   border-color: var(--ut-orange);
 }
 
+.border-selectiveYellow {
+  border-color: var(--selective-yellow);
+}
+
 .bg-prussianBlue {
   background-color: var(--prussian-blue);
 }
@@ -844,6 +848,10 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+}
+
+.bg-utOrange {
+  background-color: var(--ut-orange);
 }
 
 .p-0 {
@@ -944,6 +952,10 @@ video {
   color: var(--sky-blue);
 }
 
+.text-utOrange {
+  color: var(--ut-orange);
+}
+
 .underline {
   text-decoration-line: underline;
 }
@@ -972,6 +984,11 @@ video {
 
 .shadow-utOrange {
   --tw-shadow-color: var(--ut-orange);
+  --tw-shadow: var(--tw-shadow-colored);
+}
+
+.shadow-selectiveYellow {
+  --tw-shadow-color: var(--selective-yellow);
   --tw-shadow: var(--tw-shadow-colored);
 }
 
@@ -1027,6 +1044,10 @@ video {
 .hover\:text-white:hover {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.hover\:opacity-85:hover {
+  opacity: 0.85;
 }
 
 @media (min-width: 375px) {
@@ -1089,5 +1110,93 @@ video {
 @media (min-width: 1280px) {
   .xl\:grid-cols-5 {
     grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .dark\:border {
+    border-width: 1px;
+  }
+
+  .dark\:border-b-2 {
+    border-bottom-width: 2px;
+  }
+
+  .dark\:border-t-2 {
+    border-top-width: 2px;
+  }
+
+  .dark\:border-selectiveYellow {
+    border-color: var(--selective-yellow);
+  }
+
+  .dark\:border-blueGreen {
+    border-color: var(--blue-green);
+  }
+
+  .dark\:border-skyBlue {
+    border-color: var(--sky-blue);
+  }
+
+  .dark\:border-t-selectiveYellow {
+    border-top-color: var(--selective-yellow);
+  }
+
+  .dark\:bg-prussianBlue {
+    background-color: var(--prussian-blue);
+  }
+
+  .dark\:bg-selectiveYellow {
+    background-color: var(--selective-yellow);
+  }
+
+  .dark\:bg-blueGreen {
+    background-color: var(--blue-green);
+  }
+
+  .dark\:bg-skyBlue {
+    background-color: var(--sky-blue);
+  }
+
+  .dark\:bg-black {
+    --tw-bg-opacity: 1;
+    background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));
+  }
+
+  .dark\:text-white {
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+  }
+
+  .dark\:text-prussianBlue {
+    color: var(--prussian-blue);
+  }
+
+  .dark\:text-skyBlue {
+    color: var(--sky-blue);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .dark\:dark\:text-skyBlue {
+      color: var(--sky-blue);
+    }
+  }
+
+  .dark\:text-selectiveYellow {
+    color: var(--selective-yellow);
+  }
+
+  .dark\:shadow-blueGreen {
+    --tw-shadow-color: var(--blue-green);
+    --tw-shadow: var(--tw-shadow-colored);
+  }
+
+  .dark\:shadow-skyBlue {
+    --tw-shadow-color: var(--sky-blue);
+    --tw-shadow: var(--tw-shadow-colored);
+  }
+
+  .dark\:hover\:text-selectiveYellow:hover {
+    color: var(--selective-yellow);
   }
 }
