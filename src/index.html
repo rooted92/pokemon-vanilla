@@ -10,35 +10,26 @@
 </head>
 
 <body class="flex flex-col min-h-screen bg-white">
-    <header class="mb-8 p-2 container mx-auto">
+    <header class="container mx-auto">
         <nav class="flex flex-col xs:flex-row justify-between items-center">
             <a href="./index.html">
-                <img src="https://api.iconify.design/simple-icons:pokemon.svg?color=%23FB8500" alt="pokemon logo" class="h-44 w-auto m-0 p-0">
+                <img src="https://api.iconify.design/simple-icons:pokemon.svg?color=%23FB8500" alt="pokemon logo"
+                    class="h-44 w-auto m-0 p-0">
             </a>
-            <div class="flex gap-4">
-                <label for="search" class="sr-only">Search</label>
-                <input id="search-input" type="search"
-                    class="border-2 border-prussianBlue rounded-full outline-2 outline-prussianBlue">
-                <button id="search-btn" type="button"
-                    class="px-4 py-2 bg-prussianBlue text-skyBlue rounded-full hover:bg-blueGreen hover:text-white transition-all ease-in">Search</button>
+            <div class="relative">
+                <div class="flex gap-4">
+                    <label for="search" class="sr-only">Search</label>
+                    <input id="search-input" type="search"
+                        class="border-2 border-prussianBlue rounded-full outline-2 outline-prussianBlue">
+                    <button id="search-btn" type="button"
+                        class="px-4 py-2 bg-prussianBlue text-skyBlue rounded-full hover:bg-blueGreen hover:text-white transition-all ease-in">Search</button>
+                </div>
+                <p id="error-msg"
+                    class="text-lg px-4 py-2 bg-red-200 text-red-800 rounded-md w-fit mb-2 top-12 transition-all duration-500 ease-in-out opacity-0 scale-90 absolute">
+                    Error: please check for spelling
+                </p>
             </div>
-            <!-- <div class="flex gap-4">
-                <label for="filter" class="sr-only">Filter by type</label>
-                <select class="bg-prussianBlue rounded-full px-4 py-2 text-white" name="filter" id="filter-dropdown">
-                    <option class="" value="All">Type</option>
-                    <option value="grass">Grass</option>
-                    <option value="fire">Fire</option>
-                    <option value="water">Water</option>
-                    <option value="electric">Electric</option>
-                    <option value="psychic">Psychic</option>
-                    <option value="ice">Ice</option>
-                    <option value="dragon">Dragon</option>
-                    <option value="dark">Dark</option>
-                    <option value="fairy">Fairy</option>
-                    <option value="normal">Normal</option>
-                    <option value="poison">Poison</option>
-                </select>
-            </div> -->
+
         </nav>
     </header>
     <main class="flex-1 mx-2 mb-16">
@@ -48,7 +39,7 @@
             </div>
         </section>
     </main>
-    <footer class="flex items-center justify-center p-4">
+    <footer class="flex items-center justify-center p-4 bg-skyBlue">
         <p>&copy; 2024 Pokemon Gallery</p>
     </footer>
 

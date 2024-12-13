@@ -79,7 +79,7 @@ const renderPokemonDetails = async () => {
     const pokemon = await getPokemonDetailsById(pokemonId);
 
     const pokemonDetails = document.createElement('div');
-    pokemonDetails.className = 'flex flex-col gap-4 items-center justify-center py-6 px-12 border border-utOrange rounded-lg bg-prussianBlue text-skyBlue shadow-lg shadow-utOrange w-[80%]';
+    pokemonDetails.className = 'flex flex-col gap-4 items-center justify-center py-6 px-12 border border-utOrange rounded-lg bg-prussianBlue text-skyBlue shadow-lg shadow-utOrange w-[80%] text-pretty';
     pokemonDetails.innerHTML = `
         <p class='text-lg font-semibold self-start'>${pokemon.id}</p>
         <div class='flex items-center justify-around gap-8'>
@@ -88,9 +88,23 @@ const renderPokemonDetails = async () => {
                 <p key=${pokemon.id} class='text-4xl font-semibold capitalize'>${pokemon.name}</p>
             </div>
             <div class='flex flex-col gap-4'>
-                <p class='capitalize'>Abilities: ${pokemon.abilities.join(', ')}</p>
-                <p class='capitalize'>Moves: ${pokemon.moves.join(', ')}</p>
-                <p class='capitalize'>Stats: ${pokemon.stats.map(stat => `${stat.name}: ${stat.value}`).join(', ')}</p>
+                <div>
+                    <p class='font-semibold text-lg'>Abilities</p>
+                    <p class='capitalize'>${pokemon.abilities.join(', ')}</p>
+                </div>
+
+                <div>
+                    <p class='font-semibold text-lg'>Moves</p>
+                    <p class='capitalize'>${pokemon.moves.join(', ')}</p>
+                </div>
+
+                <div>
+                    <p class='font-semibold text-lg'>Stats</p>
+                    <p class='capitalize'>${pokemon.stats.map(stat => `${stat.name}: ${stat.value}`).join(', ')}</p>
+                </div>
+                
+                
+                
             </div>
         </div>
         <div class='flex flex-col gap-4'>
