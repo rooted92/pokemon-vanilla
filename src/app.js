@@ -61,8 +61,8 @@ searchInput.addEventListener('input', async (event) => {
 
     if (filteredPokemon.length === 0) {
         pokemonGallery.innerHTML = `
-            <div class='px-4 py-2 bg-red-200 text-red-800 rounded-md'>
-                <p class="font-bold">No Pokémon found matching "${userInput}".</p>
+            <div class='flex justify-center items-center w-full h-full col-span-1 sm:col-span-3 xl:cos-span-5'>
+                <p class="font-bold px-4 py-2 bg-red-200 text-red-800 rounded-md">No Pokémon found matching "${userInput}".</p>
             </div>
         `;
         return;
@@ -72,11 +72,9 @@ searchInput.addEventListener('input', async (event) => {
         isSearching = false;
         offset = 0;
         limit = 15;
-        console.log('resetting', offset, limit, isSearching);
-        
         pokemonGallery.innerHTML = '';
+
         const initialPokemonChunk = await getPokemonChunk(offset, limit);
-        console.log('initialPokemonChunk', initialPokemonChunk);
         renderPokemonGallery(initialPokemonChunk);
         return;
     }
