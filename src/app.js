@@ -27,7 +27,7 @@ searchButton.addEventListener('click', async () => {
         pokemonCard.className = 'flex flex-col items-center justify-center p-2 border border-utOrange rounded-lg shadow-lg shadow-utOrange bg-prussianBlue text-skyBlue';
         pokemonCard.innerHTML = `
             <p class='text-lg font-semibold self-end'>${id}</p>
-            <a href='/src/pages/-details.html?id=${id}' class='hover:-translate-y-1 hover:scale-105 transition-all ease-in'>
+            <a href='/src/pages/pokemon-details.html?id=${id}' class='hover:-translate-y-1 hover:scale-105 transition-all ease-in'>
             <img src=${image} alt=${name} class="w-[10rem] h-auto" />
             </a>
             <p key=${id} class='text-lg font-semibold capitalize'>${name}</p>
@@ -47,7 +47,9 @@ searchInput.addEventListener('input', async (event) => {
         return pokemon.name.toLowerCase().includes(userInput)
     });
 
-    console.log(filteredPokemon)
+    if(!filteredPokemon){
+        
+    }
 
     renderPokemonGallery(filteredPokemon);
 

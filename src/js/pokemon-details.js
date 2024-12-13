@@ -79,40 +79,41 @@ const renderPokemonDetails = async () => {
     const pokemon = await getPokemonDetailsById(pokemonId);
 
     const pokemonDetails = document.createElement('div');
-    pokemonDetails.className = 'flex flex-col gap-4 items-center justify-center py-6 px-12 border border-utOrange rounded-lg bg-prussianBlue text-skyBlue shadow-lg shadow-utOrange w-[80%] text-pretty';
+    pokemonDetails.className = 'flex flex-col gap-4 items-center justify-center py-6 px-12 border border-utOrange rounded-lg bg-prussianBlue text-skyBlue shadow-lg shadow-utOrange xxs:w-[90%] sm:w-[80%] text-pretty';
     pokemonDetails.innerHTML = `
-        <p class='text-lg font-semibold self-start'>${pokemon.id}</p>
-        <div class='flex items-center justify-around gap-8'>
+        <p class='text-3xl text-selectiveYellow font-semibold self-start'>${pokemon.id}</p>
+
+        <div class='flex flex-col sm:flex-row items-center justify-around gap-8 mb-8'>
             <div class='flex flex-col items-center justify-center gap-4'>
-                <img src=${pokemon.image} alt=${pokemon.name} class="w-[20rem] h-auto" />
-                <p key=${pokemon.id} class='text-4xl font-semibold capitalize'>${pokemon.name}</p>
+                <img src=${pokemon.image} alt=${pokemon.name} class="w-[10rem] sm:w-[20rem] h-auto" />
+                <p key=${pokemon.id} class='text-3xl sm:text-4xl decoration-utOrange underline underline-offset-4 font-semibold capitalize'>${pokemon.name}</p>
             </div>
             <div class='flex flex-col gap-4'>
                 <div>
-                    <p class='font-semibold text-lg'>Abilities</p>
+                    <p class='font-semibold text-lg text-selectiveYellow'>Abilities</p>
                     <p class='capitalize'>${pokemon.abilities.join(', ')}</p>
                 </div>
 
                 <div>
-                    <p class='font-semibold text-lg'>Moves</p>
+                    <p class='font-semibold text-lg text-selectiveYellow'>Moves</p>
                     <p class='capitalize'>${pokemon.moves.join(', ')}</p>
                 </div>
 
                 <div>
-                    <p class='font-semibold text-lg'>Stats</p>
+                    <p class='font-semibold text-lg text-selectiveYellow'>Stats</p>
                     <p class='capitalize'>${pokemon.stats.map(stat => `${stat.name}: ${stat.value}`).join(', ')}</p>
                 </div>
-                
-                
-                
             </div>
         </div>
+
         <div class='flex flex-col gap-4'>
-            <p class='text-xl font-semibold'>Evolutions</p>
-            <div class='grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 items-center justify-around gap-8'>
+            <p class='text-xl text-selectiveYellow font-semibold'>Evolutions</p>
+            <div class='grid grid-cols-1 xxs:grid-cols-2 xs:grid-cols-3 lg:grid-cols-5 items-center justify-around gap-8'>
                 ${pokemonEvolutions.map(evolution => `
                     <div class='flex flex-col items-center justify-center gap-4'>
-                        <img src=${evolution.image} alt=${evolution.name} class="w-[10rem] h-auto" />
+                        <a href='/src/pages/pokemon-details.html?id=${evolution.id}' class='hover:-translate-y-1 hover:scale-105 transition-all ease-in'>
+                            <img src=${evolution.image} alt=${evolution.name} class="w-[10rem] h-auto" />
+                        </a>
                         <p class='text-lg font-semibold capitalize'>${evolution.name}</p>
                     </div>
                 `).join('')}
