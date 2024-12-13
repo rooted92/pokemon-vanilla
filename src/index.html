@@ -17,18 +17,10 @@
                 <img src="https://api.iconify.design/simple-icons:pokemon.svg?color=%23219EBC" alt="pokemon logo"
                     class="h-36 w-auto m-0 p-0">
             </a>
-            <div class="relative">
-                <div class="flex gap-4">
-                    <label for="search" class="sr-only">Search</label>
-                    <input id="search-input" type="search"
-                        class="p-2 border-2 border-prussianBlue rounded-md outline-2 outline-prussianBlue">
-                    <button id="search-btn" type="button"
-                        class="px-4 py-2 bg-prussianBlue dark:bg-selectiveYellow text-skyBlue dark:text-prussianBlue rounded-full hover:opacity-85 transition-all ease-in">Search</button>
-                </div>
-                <p id="error-msg"
-                    class="text-sm font-semibold px-4 py-2 bg-red-200 text-red-800 rounded-md w-fit mb-2 top-14 sm:top-12 transition-all duration-500 ease-in-out opacity-0 scale-90 absolute hidden">
-                    Pokemon not found!
-                </p>
+            <div class="flex items-center justify-center gap-4">
+                <label for="search" class="text-lg font-semibold text-selectiveYellow">Search:</label>
+                <input id="search-input" type="search"
+                    class="p-2 border-2 border-prussianBlue rounded-md outline-2 outline-prussianBlue">
             </div>
         </nav>
     </header>
@@ -42,7 +34,8 @@
             </div>
         </section>
     </main>
-    <footer class="flex items-center justify-center p-4 bg-skyBlue dark:bg-prussianBlue dark:text-selectiveYellow text-prussianBlue dark:border-t-2 dark:border-selectiveYellow">
+    <footer
+        class="flex items-center justify-center p-4 bg-skyBlue dark:bg-prussianBlue dark:text-selectiveYellow text-prussianBlue dark:border-t-2 dark:border-selectiveYellow">
         <p>&copy; 2024 Pokemon Gallery</p>
     </footer>
 
