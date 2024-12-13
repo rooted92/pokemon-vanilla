@@ -85,7 +85,7 @@ const renderPokemonDetails = async () => {
 
         <div class='flex flex-col sm:flex-row items-center justify-around gap-8 mb-8'>
             <div class='flex flex-col items-center justify-center gap-4'>
-                <img src=${pokemon.image} alt=${pokemon.name} class="w-[10rem] sm:w-[20rem] h-auto" />
+                <img src=${pokemon.image} alt=${pokemon.name} class="w-[10rem] sm:w-[20rem] h-auto" loading='lazy' />
                 <p key=${pokemon.id} class='text-3xl sm:text-4xl decoration-utOrange underline underline-offset-4 font-semibold capitalize'>${pokemon.name}</p>
             </div>
             <div class='flex flex-col gap-4'>

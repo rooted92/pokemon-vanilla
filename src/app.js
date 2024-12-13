@@ -73,7 +73,7 @@ async function renderPokemonGallery(pokemonList) {
         pokemonCard.innerHTML = `
             <p class='text-lg font-semibold self-end'>${id}</p>
             <a href='/src/pages/pokemon-details.html?id=${id}' class='hover:-translate-y-1 hover:scale-105 transition-all ease-in'>
-            <img src=${image} alt=${name} class="w-[10rem] h-auto" />
+            <img src=${image} alt=${name} class="w-[10rem] h-auto" loading='lazy' />
             </a>
             <p key=${id} class='text-lg font-semibold capitalize'>${name}</p>
             <p class='capitalize italic'>${type}</p>
@@ -84,7 +84,7 @@ async function renderPokemonGallery(pokemonList) {
 }
 
 async function getAllPokemon() {
-    const response = await fetch('https://pokeapi.co/api/v2/pokemon/?limit=151&offset=0');
+    const response = await fetch('https://pokeapi.co/api/v2/pokemon/?limit=1010&offset=0');
     const data = await response.json();
 
     return data.results;
