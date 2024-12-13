@@ -4,6 +4,19 @@ const searchButton = document.getElementById('search-btn');
 const error = document.getElementById('error-msg');
 
 let allPokemonData = [];
+let offset = 0;
+let limit = 15;
+let isSearching = false;
+
+window.addEventListener('scroll', async () => {
+    if (isSearching) return;
+
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+        offset += limit;
+        const nextPokemonChunk = await getPokemonChunk(offset, limit);
+        renderPokemonGallery(nextPokemonChunk);
+    }
+});
 
 searchButton.addEventListener('click', async () => {
     const userInput = searchInput.value.toLowerCase().trim();
@@ -18,7 +31,7 @@ searchButton.addEventListener('click', async () => {
     } else {
         error.classList.remove('opacity-100', 'scale-100');
         error.classList.add('opacity-0', 'scale-90', 'hidden');
-        
+
         const { name, type, image, id } = await getPokemonDetails(pokemon.url);
 
         pokemonGallery.innerHTML = '';
@@ -35,36 +48,50 @@ searchButton.addEventListener('click', async () => {
         `;
 
         pokemonGallery.appendChild(pokemonCard);
-
     }
 })
 
 searchInput.addEventListener('input', async (event) => {
     const userInput = searchInput.value.toLowerCase().trim();
-    console.log(userInput)
+    isSearching = true;
 
     const filteredPokemon = allPokemonData.filter(pokemon => {
         return pokemon.name.toLowerCase().includes(userInput)
     });
 
-    if(!filteredPokemon){
-        
+    if (filteredPokemon.length === 0) {
+        pokemonGallery.innerHTML = `
+            <div class='px-4 py-2 bg-red-200 text-red-800 rounded-md'>
+                <p class="font-bold">No Pokémon found matching "${userInput}".</p>
+            </div>
+        `;
+        return;
     }
 
-    renderPokemonGallery(filteredPokemon);
+    if (userInput === '') {
+        isSearching = false;
+        offset = 0;
+        limit = 15;
+        console.log('resetting', offset, limit, isSearching);
+        
+        pokemonGallery.innerHTML = '';
+        const initialPokemonChunk = await getPokemonChunk(offset, limit);
+        console.log('initialPokemonChunk', initialPokemonChunk);
+        renderPokemonGallery(initialPokemonChunk);
+        return;
+    }
 
+    pokemonGallery.innerHTML = '';
+    renderPokemonGallery(filteredPokemon);
 })
 
-const buildPokemonElements = async (getAllPokemonData) => {
-    const allPokemon = await getAllPokemonData();
-    allPokemonData = allPokemon;
+const buildPokemonElements = async (getPokemon) => {
+    const allPokemon = await getPokemon();
 
     renderPokemonGallery(allPokemon);
 }
 
 async function renderPokemonGallery(pokemonList) {
-    pokemonGallery.innerHTML = '';
-
     pokemonList.forEach(async (pokemon) => {
         const { name, type, image, id } = await getPokemonDetails(pokemon.url);
 
@@ -83,12 +110,22 @@ async function renderPokemonGallery(pokemonList) {
     });
 }
 
+async function getPokemonChunk(offset = 0, limit = 15) {
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=${limit}&offset=${offset}`);
+    const data = await response.json();
+
+    return data.results;
+}
+
 async function getAllPokemon() {
     const response = await fetch('https://pokeapi.co/api/v2/pokemon/?limit=1010&offset=0');
     const data = await response.json();
 
     return data.results;
 }
+
+// get all pokemon data, used for search functionality
+allPokemonData = await getAllPokemon();
 
 async function getPokemonDetails(pokemonURL) {
     const response = await fetch(pokemonURL);
@@ -104,5 +141,5 @@ async function getPokemonDetails(pokemonURL) {
     return pokemonObject;
 }
 
-// on page load
-buildPokemonElements(getAllPokemon);
+// on page load load the first 15 pokemon
+buildPokemonElements(getPokemonChunk);
