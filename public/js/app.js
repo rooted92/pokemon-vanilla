@@ -16,9 +16,9 @@ window.addEventListener('scroll', async () => {
     }
 });
 
-searchInput.addEventListener('input', async (event) => {
-    const userInput = searchInput.value.toLowerCase().trim();
+searchInput.addEventListener('input', debounce(async () => {
     isSearching = true;
+    const userInput = searchInput.value.toLowerCase().trim();
 
     const filteredPokemon = allPokemonData.filter(pokemon => {
         return pokemon.name.toLowerCase().includes(userInput)
@@ -46,7 +46,7 @@ searchInput.addEventListener('input', async (event) => {
 
     pokemonGallery.innerHTML = '';
     renderPokemonGallery(filteredPokemon);
-})
+}, 300));
 
 const buildPokemonElements = async (getPokemon) => {
     const allPokemon = await getPokemon();
@@ -102,6 +102,14 @@ async function getPokemonDetails(pokemonURL) {
     }
 
     return pokemonObject;
+}
+
+function debounce(func, delay) {
+    let timer;
+    return function (...args) {
+        clearTimeout(timer);
+        timer = setTimeout(() => func.apply(this, args), delay);
+    };
 }
 
 // on page load load the first 15 pokemon
