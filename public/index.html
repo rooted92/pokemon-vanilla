@@ -12,10 +12,10 @@
 <body class="flex flex-col min-h-screen bg-white dark:bg-prussianBlue">
     <header
         class="mb-8 sm:mb-2 fixed bg-skyBlue dark:bg-prussianBlue dark:border-b-2 dark:border-selectiveYellow w-full z-10">
-        <nav class="flex flex-col sm:flex-row justify-center gap-16 items-center mx-10 w-full">
+        <nav class="flex flex-col pb-6 sm:flex-row justify-center sm:gap-16 items-center sm:mx-10 w-full">
             <a href="./index.html">
                 <img src="https://api.iconify.design/simple-icons:pokemon.svg?color=%23219EBC" alt="pokemon logo"
-                    class="h-36 w-auto m-0 p-0">
+                    class="h-24 sm:h-36 w-auto m-0 p-0">
             </a>
             <div class="flex items-center justify-center gap-4">
                 <label for="search" class="text-lg font-semibold text-selectiveYellow">Search:</label>
@@ -24,12 +24,12 @@
             </div>
         </nav>
     </header>
-    <main class="flex-1 mx-2 mb-16 mt-44">
-        <h1 class="text-2xl font-semibold text-prussianBlue dark:text-white text-center pb-6">
-            Search Through 1,010 Pokémon Across 9 Generations!
+    <main class="flex-1 mx-2 mb-16 mt-48">
+        <h1 class="text-lg sm:text-2xl font-semibold text-prussianBlue dark:text-white text-center pb-6">
+            Search Through <span class="bg-gradient-to-r from-utOrange to-red-500 px-2 rounded-md text-white">1,010</span> Pokémon Across 9 Generations!
         </h1>
         <section class="container mx-auto">
-            <div id="pokemon-gallery" class="grid grid-cols-1 sm:grid-cols-3 xl:grid-cols-5 gap-8">
+            <div id="pokemon-gallery" class="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 xl:grid-cols-5 gap-8">
 
             </div>
         </section>
